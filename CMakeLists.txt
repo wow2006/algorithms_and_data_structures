@@ -9,7 +9,11 @@ include_directories(".")
 file(GLOB SOURCES "./*/*.cpp")
 
 #compile flags
-set(CMAKE_CXX_FLAGS "-Wall -std=c++11 -g -pedantic")
+if(WIN32)
+	set(CMAKE_CXX_FLAGS "/Wall")
+else()
+	set(CMAKE_CXX_FLAGS "-Wall -std=c++11 -g -pedantic")
+endif()
 
 foreach( sourcefile ${SOURCES} )
         get_filename_component( demo_name ${sourcefile} NAME_WE )
