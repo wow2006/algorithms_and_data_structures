@@ -10,7 +10,7 @@ target_compile_options(
 	Common
 	INTERFACE
 	$<$<CXX_COMPILER_ID:GNU>:-Wall -pedantic>
-	$<$<CXX_COMPILER_ID:Clang>:-Weverything -pedantic>
+	$<$<CXX_COMPILER_ID:Clang>:-Weverything -pedantic -Wno-c++98-compat>
 	$<$<CXX_COMPILER_ID:MSVC>:/Wall>
 )
 
