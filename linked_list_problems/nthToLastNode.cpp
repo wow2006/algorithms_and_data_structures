@@ -10,60 +10,68 @@
 
 #ifndef TESTING
 int main() {
-	ListNode *head = nullptr;
-	insert(head, 3);
-	insert(head, 2);
-	insert(head, 1);
-	insert(head, 5);
+  ListNode *head = nullptr;
+  insert(head, 3);
+  insert(head, 2);
+  insert(head, 1);
+  insert(head, 5);
 
-	iterateList(head);
+  iterateList(head);
 
-	const auto pNthNodeToLastNode = nthToLastNode(head, 2);
-	std::cout << pNthNodeToLastNode->val << std::endl;
+  const auto pNthNodeToLastNode = nthToLastNode(head, 2);
+  std::cout << pNthNodeToLastNode->val << std::endl;
 
-	return 0;
+  return 0;
 }
 #endif //! TESTING
 
 ListNode *nthToLastNode(ListNode *head, int n) {
-	auto ptr1 = head;
-	auto ptr2 = head;
+  if(n == 0) {
+    return nullptr;
+  }
 
-	int i = 1;
-	while(ptr1 != nullptr && i <= n) {
-		ptr1 = ptr1->next;
-		++i;
-	}
+  auto ptr1 = head;
+  auto ptr2 = head;
 
-	while (ptr1 != nullptr) {
-		ptr1 = ptr1->next;
-		ptr2 = ptr2->next;
-	}
+  int i = 1;
+  while(ptr1 != nullptr && i <= n) {
+    ptr1 = ptr1->next;
+    ++i;
+  }
 
-	return ptr2;
+  if(ptr1 == nullptr && n >= i) {
+    return nullptr;
+  }
+
+  while(ptr1 != nullptr) {
+    ptr1 = ptr1->next;
+    ptr2 = ptr2->next;
+  }
+
+  return ptr2;
 }
 
 void insert(ListNode *&head, int v) {
-	const auto newNode = new ListNode(v);
+  const auto newNode = new ListNode(v);
 
-	if (head == nullptr) {
-		head = newNode;
-	} else {
-		auto temp = head;
+  if (head == nullptr) {
+    head = newNode;
+  } else {
+    auto temp = head;
 
-		while (temp->next != nullptr) {
-			temp = temp->next;
-		}
+    while (temp->next != nullptr) {
+      temp = temp->next;
+    }
 
-		temp->next = newNode;
-	}
+    temp->next = newNode;
+  }
 }
 
 void iterateList(ListNode *head) {
-	while (head != nullptr) {
-		std::cout << head->val << "-->";
-		head = head->next;
-	}
+  while (head != nullptr) {
+    std::cout << head->val << "-->";
+    head = head->next;
+  }
 
-	std::cout << "NULL" << std::endl;
+  std::cout << "NULL" << std::endl;
 }

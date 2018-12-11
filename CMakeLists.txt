@@ -2,6 +2,16 @@ cmake_minimum_required(VERSION 3.9)
 
 project(anAlgoProbAday CXX)
 
+option(ENABLE_TESTS "" ON)
+
+if(ENABLE_TESTS)
+  enable_testing()
+
+  list(APPEND CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/cmake)
+
+  find_package(GUnit)
+endif()
+
 # create interface for all projects
 add_library(Common INTERFACE)
 
@@ -29,31 +39,33 @@ target_include_directories(
 	${CMAKE_CURRENT_SOURCE_DIR}/include
 )
 
+add_subdirectory(linked_list_problems)
+
 # Files
-file(GLOB SOURCES "./*/*.cpp")
-
-foreach( sourcefile ${SOURCES} )
-        get_filename_component(demo_name ${sourcefile} NAME_WE)
-
-		if (${demo_name} STREQUAL "pstring")
-
-			add_library(pstring ${sourcefile})
-
-			target_link_libraries(pstring PUBLIC Common)
-
-            continue()
-		endif()
-
-		if (${demo_name} STREQUAL "pUnitTest")
-			add_library(pUnitTest ${sourcefile})
-
-            continue()
-		endif()
-
-        add_executable( ${demo_name} ${sourcefile} )
-		if (${demo_name} STREQUAL "pstring_test")
-			target_link_libraries (${demo_name} pstring pUnitTest)
-		else()
-            target_link_libraries(${demo_name} PUBLIC Common)
-		endif()
-endforeach( sourcefile ${SOURCES} )
+#file(GLOB SOURCES "./*/*.cpp")
+#
+#foreach( sourcefile ${SOURCES} )
+#        get_filename_component(demo_name ${sourcefile} NAME_WE)
+#
+#		if (${demo_name} STREQUAL "pstring")
+#
+#			add_library(pstring ${sourcefile})
+#
+#			target_link_libraries(pstring PUBLIC Common)
+#
+#            continue()
+#		endif()
+#
+#		if (${demo_name} STREQUAL "pUnitTest")
+#			add_library(pUnitTest ${sourcefile})
+#
+#            continue()
+#		endif()
+#
+#        add_executable( ${demo_name} ${sourcefile} )
+#		if (${demo_name} STREQUAL "pstring_test")
+#			target_link_libraries (${demo_name} pstring pUnitTest)
+#		else()
+#            target_link_libraries(${demo_name} PUBLIC Common)
+#		endif()
+#endforeach( sourcefile ${SOURCES} )
