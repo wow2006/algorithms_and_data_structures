@@ -1,5 +1,4 @@
-#ifndef NTH_TO_LAST_NOTE_HPP
-#define NTH_TO_LAST_NOTE_HPP
+#pragma once
 
 struct ListNode {
 	int val;
@@ -15,4 +14,3 @@ void insert(ListNode *&head, int v);
 
 void iterateList(ListNode *head);
 
-#endif //! NTH_TO_LAST_NOTE_HPP

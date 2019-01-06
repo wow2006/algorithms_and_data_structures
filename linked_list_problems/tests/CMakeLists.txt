@@ -13,11 +13,34 @@ target_compile_definitions(
 target_link_libraries(
   nthToLastNodeTest
   PUBLIC
-	GUnit
+  GUnit
 )
 
 add_test(
-  NAME AllLinkedLists
+  NAME    nthToLastNodeTest 
   COMMAND nthToLastNodeTest
+)
+
+add_executable(
+  addTwoNumbersListsTest 
+  ../addTwoNumbersLists.cpp
+  addTwoNumbersListsTest.cpp
+)
+
+target_compile_definitions(
+  addTwoNumbersListsTest 
+  PUBLIC
+  TESTING
+)
+
+target_link_libraries(
+  addTwoNumbersListsTest 
+  PUBLIC
+  GUnit
+)
+
+add_test(
+  NAME    addTwoNumbersListsTest 
+  COMMAND addTwoNumbersListsTest 
 )
 
