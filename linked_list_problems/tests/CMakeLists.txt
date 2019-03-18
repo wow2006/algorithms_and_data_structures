@@ -44,3 +44,26 @@ add_test(
   COMMAND addTwoNumbersListsTest 
 )
 
+add_executable(
+  cloneListWithRandomPtrTest
+  ../cloneListWithRandomPtr.cpp
+  cloneListWithRandomPtrTest.cpp
+)
+
+target_compile_definitions(
+  cloneListWithRandomPtrTest
+  PUBLIC
+  TESTING
+)
+
+target_link_libraries(
+  cloneListWithRandomPtrTest
+  PUBLIC
+  GUnit
+)
+
+add_test(
+  NAME    cloneListWithRandomPtrTest
+  COMMAND cloneListWithRandomPtrTest 
+)
+
