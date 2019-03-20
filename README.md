@@ -31,21 +31,21 @@
 14. [Leet code](docs/LeetCode.md)
 
 ### Include
-    Include contains single header implementation of data structures and some algorithms.
+Include contains single header implementation of data structures and some algorithms.
 
-    | Data Structure/Algorithm |     Implementation   |
-    | :------------: | :----------: |
-    | Generic Macros and Algorithms like swap, random number generation | [generic.h](include/generic.h) |
-    | Generic Stack Implementation | [stack.h](include/stack.h) |
-    | Generic Queue Implementation | [queue.h](include/queue.h) |
-    | Generic List Implementation  | [list.h](include/list.h)  |
-    | Binary Search Tree Implementation | [binarySearchTree.h](include/binarySearchTree.h) |
-    | Quick Sort Implementation | [quickSort.h](include/quickSort.h) |
-    | Merge Sort Implementation | [mergeSort.h](include/mergeSort.h)|
-    | Selection Sort Implementation | [selectionSort.h](include/selectionSort.h) |
-    | Bubble Sort Implementation | [bubbleSort.h](include/bubbleSort.h) |
-    | Linux Kernel Double LinkedList Implementation | [double_linked_list.h](include/double_linked_list.h) |
-    | Generic Graph Implementation (Adjacency List) | [graph.h](include/graph.h) |
-    | Heap Sort Implementation | [heap_sort.h](include/heap_sort.h)|
-    | My own string library implementation | [pstring.h](include/pstring.h) [pstring.cpp](include/pstring.cpp)|
+| Data Structure/Algorithm |     Implementation   |
+| :------------: | :----------: |
+| Generic Macros and Algorithms like swap, random number generation | [generic.h](include/generic.h) |
+| Generic Stack Implementation | [stack.h](include/stack.h) |
+| Generic Queue Implementation | [queue.h](include/queue.h) |
+| Generic List Implementation  | [list.h](include/list.h)  |
+| Binary Search Tree Implementation | [binarySearchTree.h](include/binarySearchTree.h) |
+| Quick Sort Implementation | [quickSort.h](include/quickSort.h) |
+| Merge Sort Implementation | [mergeSort.h](include/mergeSort.h)|
+| Selection Sort Implementation | [selectionSort.h](include/selectionSort.h) |
+| Bubble Sort Implementation | [bubbleSort.h](include/bubbleSort.h) |
+| Linux Kernel Double LinkedList Implementation | [double_linked_list.h](include/double_linked_list.h) |
+| Generic Graph Implementation (Adjacency List) | [graph.h](include/graph.h) |
+| Heap Sort Implementation | [heap_sort.h](include/heap_sort.h)|
+| My own string library implementation | [pstring.h](include/pstring.h) [pstring.cpp](include/pstring.cpp)|
 
