@@ -10,31 +10,6 @@ if(ENABLE_TESTS)
   find_package(GTest REQUIRED)
 endif()
 
-# create interface for all projects
-add_library(Common INTERFACE)
+add_subdirectory(common)
+add_subdirectory(LinkedList)
 
-# compile flags
-target_compile_options(
-	Common
-	INTERFACE
-	$<$<CXX_COMPILER_ID:GNU>:-Wall -pedantic>
-	$<$<CXX_COMPILER_ID:Clang>:-Weverything -pedantic -Wno-c++98-compat>
-	$<$<CXX_COMPILER_ID:MSVC>:/Wall>
-)
-
-# use c++11
-target_compile_features(
-	Common
-	INTERFACE
-	cxx_std_11
-)
-
-# dirctory headers
-target_include_directories(
-	Common
-	INTERFACE
-	${CMAKE_CURRENT_SOURCE_DIR}
-	${CMAKE_CURRENT_SOURCE_DIR}/include
-)
-
-add_subdirectory(linked_list_problems)
