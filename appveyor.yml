@@ -1,0 +1,34 @@
+version: '1.0.{build}'
+
+image: Visual Studio 2017
+
+platform:
+  - x64
+ 
+configuration:
+  - Release
+
+install:
+  - set ORIGIN_PATH=%cd%
+  - git submodule update --init --recursive
+  # Install GTest
+  - cd ..
+  - git clone https://github.com/google/googletest.git
+  - cd googletest
+  - cmake -G "Visual Studio 15 2017 Win64" -DBUILD_GMOCK=OFF -Dgtest_force_shared_crt=ON .
+  - cmake --build . --target ALL_BUILD --config Release
+  - cmake --build . --target install --config Release
+  - set GTEST_DIR="C:/Program Files/googletest-distribution"
+  - cd %ORIGIN_PATH%
+
+before_build:
+  - cmake -G "Visual Studio 15 2017 Win64" -DGTEST_ROOT=%GTEST_DIR% .
+  #- cmake --build . --target ALL_BUILD --config Release
+  
+build:
+  project: C:\projects\algorithms-and-data-structures\anAlgoProbAday.sln
+  verbosity: minimal
+  parallel: true
+  
+#test_script:
+  #- ctest

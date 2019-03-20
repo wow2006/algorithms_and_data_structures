@@ -1,3 +1,0 @@
-[submodule "3rdparty/GUnit"]
-	path = 3rdparty/GUnit
-	url = https://github.com/cpp-testing/GUnit.git

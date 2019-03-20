@@ -13,7 +13,8 @@ target_compile_definitions(
 target_link_libraries(
   nthToLastNodeTest
   PUBLIC
-  GUnit
+  GTest::GTest
+  GTest::Main
 )
 
 add_test(
@@ -36,7 +37,8 @@ target_compile_definitions(
 target_link_libraries(
   addTwoNumbersListsTest 
   PUBLIC
-  GUnit
+  GTest::GTest
+  GTest::Main
 )
 
 add_test(
@@ -59,7 +61,8 @@ target_compile_definitions(
 target_link_libraries(
   cloneListWithRandomPtrTest
   PUBLIC
-  GUnit
+  GTest::GTest
+  GTest::Main
 )
 
 add_test(
