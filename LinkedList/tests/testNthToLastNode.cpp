@@ -92,3 +92,38 @@ TEST(LinkedListCreate, CreateTwoNodeFromArray3) {
   EXPECT_EQ(3, linkedList.m_pHead->m_pNext->m_pNext->m_iValue);
   ASSERT_EQ(nullptr, linkedList.m_pHead->m_pNext->m_pNext->m_pNext);
 }
+
+TEST(LinkedList, 2thToLastNode) {
+  constexpr std::array<int, 3> aValues = {1, 2, 3};
+  LinkedList linkedList;
+  for(int value : aValues) {
+    linkedList.add(value);
+  }
+
+  const auto pNode = linkedList.find(-2);
+  ASSERT_NE(nullptr, pNode);
+  EXPECT_EQ(2, pNode->m_iValue);
+}
+
+TEST(LinkedList, 3thToLastNode) {
+  constexpr std::array<int, 3> aValues = {1, 2, 3};
+  LinkedList linkedList;
+  for(int value : aValues) {
+    linkedList.add(value);
+  }
+
+  const auto pNode = linkedList.find(-3);
+  ASSERT_NE(nullptr, pNode);
+  EXPECT_EQ(1, pNode->m_iValue);
+}
+
+TEST(LinkedList, 4thToLastNodeOutside) {
+  constexpr std::array<int, 3> aValues = {1, 2, 3};
+  LinkedList linkedList;
+  for(int value : aValues) {
+    linkedList.add(value);
+  }
+
+  const auto pNode = linkedList.find(-4);
+  ASSERT_EQ(nullptr, pNode);
+}
