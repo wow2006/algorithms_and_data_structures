@@ -1,3 +1,5 @@
+#include <array>
+
 #include <gtest/gtest.h>
 #include "nthToLastNode.hpp"
 /*
