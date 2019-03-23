@@ -124,6 +124,12 @@ LinkedList operator+(LinkedList a, LinkedList b) {
     value = pA->m_iValue + carry;
     c.add(value);
     carry = 0;
+
+    auto pNode = pA->m_pNext;
+    while(pNode != nullptr) {
+      c.add(pNode->m_iValue);
+      pNode = pNode->m_pNext;
+    }
   }
 
   if(pA == nullptr &&
@@ -131,6 +137,12 @@ LinkedList operator+(LinkedList a, LinkedList b) {
     value = pB->m_iValue + carry;
     c.add(value);
     carry = 0;
+
+    auto pNode = pB->m_pNext;
+    while(pNode != nullptr) {
+      c.add(pNode->m_iValue);
+      pNode = pNode->m_pNext;
+    }
   }
 
   if(carry > 0) {
@@ -300,5 +312,65 @@ TEST(AddTwoNumbersLists, AddElevenAndNine) {
   ASSERT_NE(nullptr, result.m_pHead->m_pNext);
   EXPECT_EQ(2, result.m_pHead->m_pNext->m_iValue);
   ASSERT_EQ(nullptr, result.m_pHead->m_pNext->m_pNext);
+}
+
+TEST(AddTwoNumbersLists, AddOneAnd111) {
+  LinkedList firstNumber;
+  firstNumber.add(1);
+
+  LinkedList secondNumber;
+  secondNumber.add(1);
+  secondNumber.add(1);
+  secondNumber.add(1);
+
+  auto result = firstNumber + secondNumber;
+
+  ASSERT_NE(nullptr, result.m_pHead);
+  EXPECT_EQ(2,       result.m_pHead->m_iValue);
+  ASSERT_NE(nullptr, result.m_pHead->m_pNext);
+  EXPECT_EQ(1,       result.m_pHead->m_pNext->m_iValue);
+  ASSERT_NE(nullptr, result.m_pHead->m_pNext->m_pNext);
+  EXPECT_EQ(1,       result.m_pHead->m_pNext->m_pNext->m_iValue);
+  ASSERT_EQ(nullptr, result.m_pHead->m_pNext->m_pNext->m_pNext);
+}
+
+TEST(AddTwoNumbersLists, Add111AndOne) {
+  LinkedList firstNumber;
+  firstNumber.add(1);
+  firstNumber.add(1);
+  firstNumber.add(1);
+
+  LinkedList secondNumber;
+  secondNumber.add(1);
+
+  auto result = firstNumber + secondNumber;
+
+  ASSERT_NE(nullptr, result.m_pHead);
+  EXPECT_EQ(2,       result.m_pHead->m_iValue);
+  ASSERT_NE(nullptr, result.m_pHead->m_pNext);
+  EXPECT_EQ(1,       result.m_pHead->m_pNext->m_iValue);
+  ASSERT_NE(nullptr, result.m_pHead->m_pNext->m_pNext);
+  EXPECT_EQ(1,       result.m_pHead->m_pNext->m_pNext->m_iValue);
+  ASSERT_EQ(nullptr, result.m_pHead->m_pNext->m_pNext->m_pNext);
+}
+
+TEST(AddTwoNumbersLists, AddNineAnd111) {
+  LinkedList firstNumber;
+  firstNumber.add(9);
+
+  LinkedList secondNumber;
+  secondNumber.add(1);
+  secondNumber.add(1);
+  secondNumber.add(1);
+
+  auto result = firstNumber + secondNumber;
+
+  ASSERT_NE(nullptr, result.m_pHead);
+  EXPECT_EQ(0,       result.m_pHead->m_iValue);
+  ASSERT_NE(nullptr, result.m_pHead->m_pNext);
+  EXPECT_EQ(2,       result.m_pHead->m_pNext->m_iValue);
+  ASSERT_NE(nullptr, result.m_pHead->m_pNext->m_pNext);
+  EXPECT_EQ(1,       result.m_pHead->m_pNext->m_pNext->m_iValue);
+  ASSERT_EQ(nullptr, result.m_pHead->m_pNext->m_pNext->m_pNext);
 }
 
