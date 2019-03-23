@@ -12,7 +12,7 @@ target_compile_options(
   INTERFACE
   $<$<CXX_COMPILER_ID:GNU>:-Wall -pedantic>
   $<$<CXX_COMPILER_ID:Clang>:-Weverything -pedantic -Wno-c++98-compat -Wno-global-constructors>
-  $<$<CXX_COMPILER_ID:MSVC>:/Wall>
+  $<$<CXX_COMPILER_ID:MSVC>:/W0>
 )
 
 # use c++11
