@@ -36,22 +36,31 @@ struct LinkedList {
    * @return node of index
    */
   Node *find(int index) {
-    index *= -1;
-    auto m_pNode = m_pHead;
-    for (int i = 1; i < index && m_pNode != nullptr; ++i) {
-      m_pNode = m_pNode->m_pNext;
-    }
+    auto pNode = m_pHead;
+    if(index < 0) {
+      index *= -1;
+      for (int i = 1; i < index && pNode != nullptr; ++i) {
+        pNode = pNode->m_pNext;
+      }
 
-    if (m_pNode == nullptr) {
-      return nullptr;
-    }
+      if (pNode == nullptr) {
+        return nullptr;
+      }
 
-    auto m_pCurrent = m_pHead;
-    while (m_pNode->m_pNext != nullptr) {
-      m_pNode = m_pNode->m_pNext;
-      m_pCurrent = m_pCurrent->m_pNext;
+      auto pCurrent = m_pHead;
+      while (pNode->m_pNext != nullptr) {
+        pNode = pNode->m_pNext;
+        pCurrent = pCurrent->m_pNext;
+      }
+      return pCurrent;
+    } else {
+      int currentIndex = 0;
+      while(pNode != nullptr && currentIndex != index) {
+        pNode = pNode->m_pNext;
+        ++currentIndex;
+      }
+      return pNode;
     }
-    return m_pCurrent;
   }
 
   Node *m_pHead = nullptr;

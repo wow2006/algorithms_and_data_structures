@@ -129,3 +129,36 @@ TEST(LinkedList, 4thToLastNodeOutside) {
   const auto pNode = linkedList.find(-4);
   ASSERT_EQ(nullptr, pNode);
 }
+
+TEST(LinkedList, 1stNode) {
+  constexpr std::array<int, 3> aValues = {1, 2, 3};
+  LinkedList linkedList;
+  for(int value : aValues) {
+    linkedList.add(value);
+  }
+
+  const auto pNode = linkedList.find(0);
+  ASSERT_EQ(linkedList.m_pHead, pNode);
+}
+
+TEST(LinkedList, 2ndNode) {
+  constexpr std::array<int, 3> aValues = {1, 2, 3};
+  LinkedList linkedList;
+  for(int value : aValues) {
+    linkedList.add(value);
+  }
+
+  const auto pNode = linkedList.find(1);
+  ASSERT_EQ(linkedList.m_pHead->m_pNext, pNode);
+}
+
+TEST(LinkedList, 4ndNodeNULL) {
+  constexpr std::array<int, 3> aValues = {1, 2, 3};
+  LinkedList linkedList;
+  for(int value : aValues) {
+    linkedList.add(value);
+  }
+
+  const auto pNode = linkedList.find(4);
+  ASSERT_EQ(nullptr, pNode);
+}
