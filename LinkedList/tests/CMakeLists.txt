@@ -1,48 +1,41 @@
-add_executable(
+macro(add_test_case test_file_name file_name)
+  add_executable(
+    ${test_file_name}
+    ${test_file_name}.cpp
+    ${file_name}
+  )
+
+  target_include_directories(
+    ${test_file_name}
+    PUBLIC
+    ../include
+  )
+
+  target_link_libraries(
+    ${test_file_name}
+    PUBLIC
+    common
+    GTest::GTest
+    GTest::Main
+  )
+
+  add_test(
+    ${test_file_name}
+    ${test_file_name}
+  )
+endmacro()
+
+add_test_case(
   testNthToLastNode
-  testNthToLastNode.cpp
+  ../src/nthToLastNode.cpp
 )
 
-target_include_directories(
-  testNthToLastNode
-  PUBLIC
-  ../include
-)
-
-target_link_libraries(
-  testNthToLastNode
-  PUBLIC
-  common
-  GTest::GTest
-  GTest::Main
-)
-
-add_test(
-  testNthToLastNode
-  testNthToLastNode
-)
-
-add_executable(
+add_test_case(
   testAddTwoNumbersLists
-  testAddTwoNumbersLists.cpp
+  ../src/addTwoNumbersLists.cpp
 )
 
-target_include_directories(
-  testAddTwoNumbersLists
-  PUBLIC
-  ../include
+add_test_case(
+  testSwapNodesWithoutSwappingData
+  ../src/swapNodesWithoutSwappingData.cpp
 )
-
-target_link_libraries(
-  testAddTwoNumbersLists
-  PUBLIC
-  common
-  GTest::GTest
-  GTest::Main
-)
-
-add_test(
-  testAddTwoNumbersLists
-  testAddTwoNumbersLists
-)
-
