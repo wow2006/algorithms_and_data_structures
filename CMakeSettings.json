@@ -8,6 +8,10 @@
       "inheritEnvironments": [ "msvc_x64" ],
       "variables": [
         {
+          "name": "CMAKE_TOOLCHAIN_FILE",
+          "value": "${env.VCPKG_ROOT}\\scripts\\buildsystems\\vcpkg.cmake"
+        },
+        {
           "name": "VCPKG_TARGET_TRIPLET",
           "value": "x64-windows"
         }
@@ -20,6 +24,10 @@
       "buildRoot": "${projectDir}\\..\\build\\${name}",
       "inheritEnvironments": [ "msvc_x64" ],
       "variables": [
+        {
+          "name": "CMAKE_TOOLCHAIN_FILE",
+          "value": "${env.VCPKG_ROOT}\\scripts\\buildsystems\\vcpkg.cmake"
+        },
         {
           "name": "VCPKG_TARGET_TRIPLET",
           "value": "x64-windows"
