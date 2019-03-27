@@ -30,5 +30,6 @@ build:
   verbosity: minimal
   parallel: true
   
-#test_script:
-  #- ctest
+test_script:
+  - cd C:\projects\algorithms-and-data-structures\
+  - ctest

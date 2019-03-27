@@ -12,7 +12,7 @@ void swapNodes(LinkedList::Node *pFirst, LinkedList::Node *pSecond) {
   pFirst->m_pNext->m_pNext = pNode;
 }
 
-bool swap(LinkedList &a, uint firstIndex, uint secondIndex) {
+bool swap(LinkedList &a, unsigned int firstIndex, unsigned int secondIndex) {
   if (a.m_pHead == nullptr) {
     return false;
   }

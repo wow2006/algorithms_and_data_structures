@@ -14,10 +14,3 @@ target_compile_options(
   $<$<CXX_COMPILER_ID:Clang>:-Weverything -pedantic -Wno-c++98-compat -Wno-global-constructors>
   $<$<CXX_COMPILER_ID:MSVC>:/W0>
 )
-
-# use c++11
-target_compile_features(
-  common
-  INTERFACE
-  cxx_std_11
-)
