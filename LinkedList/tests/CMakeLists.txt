@@ -20,10 +20,14 @@ macro(add_test_case test_file_name file_name)
   )
 
   add_test(
-    ${test_file_name}
-    ${test_file_name}
+    NAME ${test_file_name} COMMAND ${test_file_name}
   )
 endmacro()
+
+add_test_case(
+  testSinglyLinkedList
+  ../src/SinglyLinkedList.cpp
+)
 
 add_test_case(
   testNthToLastNode
@@ -39,3 +43,4 @@ add_test_case(
   testSwapNodesWithoutSwappingData
   ../src/swapNodesWithoutSwappingData.cpp
 )
+
