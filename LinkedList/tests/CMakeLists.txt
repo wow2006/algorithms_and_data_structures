@@ -19,8 +19,8 @@ macro(add_test_case test_file_name file_name)
     GTest::Main
   )
 
-  add_test(
-    NAME ${test_file_name} COMMAND ${test_file_name}
+  gtest_discover_tests(
+    ${test_file_name}
   )
 endmacro()
 
@@ -29,18 +29,18 @@ add_test_case(
   ../src/SinglyLinkedList.cpp
 )
 
-add_test_case(
-  testNthToLastNode
-  ../src/nthToLastNode.cpp
-)
-
-add_test_case(
-  testAddTwoNumbersLists
-  ../src/addTwoNumbersLists.cpp
-)
-
-add_test_case(
-  testSwapNodesWithoutSwappingData
-  ../src/swapNodesWithoutSwappingData.cpp
-)
-
+#add_test_case(
+#  testNthToLastNode
+#  ../src/nthToLastNode.cpp
+#)
+#
+#add_test_case(
+#  testAddTwoNumbersLists
+#  ../src/addTwoNumbersLists.cpp
+#)
+#
+#add_test_case(
+#  testSwapNodesWithoutSwappingData
+#  ../src/swapNodesWithoutSwappingData.cpp
+#)
+#

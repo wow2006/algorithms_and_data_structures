@@ -1,23 +1,25 @@
 #include "SinglyLinkedList.hpp"
+#include <cstdio>
 
-LinkedList::LinkedList() = default;
+SinglyLinkedList::SinglyLinkedList() = default;
 
-LinkedList::LinkedList(const std::initializer_list<int> &l)
+SinglyLinkedList::SinglyLinkedList(const std::initializer_list<int> &l)
     : m_pRoot{new Node{*l.begin()}} {
   auto pNext = &m_pRoot->m_pNext;
-  auto itr   = l.begin() + 1;
+  auto itr = l.begin() + 1;
 
-  for(;itr != l.end(); ++itr, pNext = &((*pNext)->m_pNext)) {
+  for (; itr != l.end(); ++itr, pNext = &((*pNext)->m_pNext)) {
     (*pNext) = new Node{*itr};
   }
 }
 
-LinkedList::~LinkedList() {
-  if(m_pRoot != nullptr) {
-    delete m_pRoot->m_pNext;
-    m_pRoot->m_pNext = nullptr;
-
-    delete m_pRoot;
-    m_pRoot = nullptr;
+SinglyLinkedList::~SinglyLinkedList() {
+  if (m_pRoot != nullptr) {
+    Node* pTemp = m_pRoot;
+    while(pTemp != nullptr) {
+      auto p = pTemp->m_pNext;
+      delete pTemp;
+      pTemp = p;
+    }
   }
 }
