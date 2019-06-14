@@ -39,3 +39,53 @@ TEST(SinglyLinkedList, initializeFromInitializationList3) {
   ASSERT_FALSE(list.m_pRoot->m_pNext->m_pNext == nullptr);
   EXPECT_EQ(3, list.m_pRoot->m_pNext->m_pNext->m_iValue);
 }
+
+TEST(SinglyLinkedList, addAValueToEmptyList) {
+  SinglyLinkedList list;
+
+  list.add(1);
+
+  ASSERT_FALSE(list.m_pRoot == nullptr);
+  EXPECT_EQ(1, list.m_pRoot->m_iValue);
+}
+
+TEST(SinglyLinkedList, addTwoValuesToEmptyList) {
+  SinglyLinkedList list;
+
+  list.add(1);
+  list.add(2);
+
+  ASSERT_FALSE(list.m_pRoot == nullptr);
+  EXPECT_EQ(1, list.m_pRoot->m_iValue);
+  
+  ASSERT_FALSE(list.m_pRoot->m_pNext == nullptr);
+  EXPECT_EQ(2, list.m_pRoot->m_pNext->m_iValue);
+}
+
+/*
+TEST(SinglyLinkedList, addThreeValuesToEmptyList) {
+  SinglyLinkedList list;
+
+  list.add(1);
+  list.add(2);
+  list.add(3);
+
+  ASSERT_FALSE(list.m_pRoot == nullptr);
+  EXPECT_EQ(1, list.m_pRoot->m_iValue);
+  
+  ASSERT_FALSE(list.m_pRoot->m_pNext == nullptr);
+  EXPECT_EQ(2, list.m_pRoot->m_pNext->m_iValue);
+}
+*/
+
+TEST(SinglyLinkedList, getEnd) {
+  SinglyLinkedList list;
+
+  ASSERT_TRUE(list.getEnd() == nullptr);
+}
+
+TEST(SinglyLinkedList, getEndFromOneItemList) {
+  SinglyLinkedList list{1};
+
+  ASSERT_FALSE(list.getEnd() == nullptr);
+}

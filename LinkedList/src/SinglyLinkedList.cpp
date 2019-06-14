@@ -23,3 +23,14 @@ SinglyLinkedList::~SinglyLinkedList() {
     }
   }
 }
+
+void SinglyLinkedList::add(int value) {
+  if(m_pRoot == nullptr) {
+    m_pRoot = new Node{value};
+  }
+  m_pRoot->m_pNext = new Node{value};
+}
+
+const SinglyLinkedList::Node* SinglyLinkedList::getEnd() const {
+  return m_pRoot;
+}
