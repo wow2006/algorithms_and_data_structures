@@ -88,4 +88,19 @@ TEST(SinglyLinkedList, getEndFromOneItemList) {
   SinglyLinkedList list{1};
 
   ASSERT_FALSE(list.getEnd() == nullptr);
+  EXPECT_EQ(1, list.getEnd()->m_iValue);
+}
+
+TEST(SinglyLinkedList, getEndFromTwoItemList) {
+  SinglyLinkedList list{1, 2};
+
+  ASSERT_FALSE(list.getEnd() == nullptr);
+  EXPECT_EQ(2, list.getEnd()->m_iValue);
+}
+
+TEST(SinglyLinkedList, getEndFromThreeItemList) {
+  SinglyLinkedList list{1, 2, 3};
+
+  ASSERT_FALSE(list.getEnd() == nullptr);
+  EXPECT_EQ(3, list.getEnd()->m_iValue);
 }

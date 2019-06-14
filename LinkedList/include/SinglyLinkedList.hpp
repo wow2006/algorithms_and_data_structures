@@ -17,7 +17,7 @@ struct SinglyLinkedList {
 
   void add(int value);
 
-  const Node* getEnd() const;
+  Node* getEnd();
 
   Node *m_pRoot = nullptr;
 };

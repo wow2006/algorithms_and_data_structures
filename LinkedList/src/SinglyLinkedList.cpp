@@ -31,6 +31,14 @@ void SinglyLinkedList::add(int value) {
   m_pRoot->m_pNext = new Node{value};
 }
 
-const SinglyLinkedList::Node* SinglyLinkedList::getEnd() const {
-  return m_pRoot;
+SinglyLinkedList::Node* SinglyLinkedList::getEnd() {
+  if(m_pRoot == nullptr) {
+    return nullptr;
+  }
+
+  auto p = m_pRoot;
+  while(p->m_pNext != nullptr) {
+    p = p->m_pNext;
+  }
+  return p;
 }
