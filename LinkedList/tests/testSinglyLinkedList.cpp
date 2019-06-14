@@ -176,7 +176,9 @@ TEST(SinglyLinkedList, removeRootFromEmptyList) {
 TEST(SinglyLinkedList, findNodeEmptyList) {
   SinglyLinkedList list;
 
-  auto pNode = list.find(1);
+  auto pNode = list.find([](const SinglyLinkedList::Node* const p) {
+      return p->m_iValue == 1;
+      });
 
   ASSERT_TRUE(pNode == nullptr);
 }
@@ -184,7 +186,9 @@ TEST(SinglyLinkedList, findNodeEmptyList) {
 TEST(SinglyLinkedList, findNode) {
   SinglyLinkedList list{ 1, 2, 3};
 
-  auto pNode = list.find(1);
+  auto pNode = list.find([](const SinglyLinkedList::Node* const p) {
+      return p->m_iValue == 1;
+      });
 
   ASSERT_FALSE(pNode == nullptr);
 }
@@ -192,7 +196,9 @@ TEST(SinglyLinkedList, findNode) {
 TEST(SinglyLinkedList, findNode2) {
   SinglyLinkedList list{ 1, 2, 3};
 
-  auto pNode = list.find(2);
+  auto pNode = list.find([](const SinglyLinkedList::Node* const p) {
+      return p->m_iValue == 2;
+      });
 
   ASSERT_FALSE(pNode == nullptr);
   EXPECT_EQ(2, pNode->m_iValue);
@@ -201,7 +207,9 @@ TEST(SinglyLinkedList, findNode2) {
 TEST(SinglyLinkedList, findNode3) {
   SinglyLinkedList list{ 1, 2, 3};
 
-  auto pNode = list.find(3);
+  auto pNode = list.find([](const SinglyLinkedList::Node* const p) {
+      return p->m_iValue == 3;
+      });
 
   ASSERT_FALSE(pNode == nullptr);
   EXPECT_EQ(3, pNode->m_iValue);

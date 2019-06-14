@@ -20,8 +20,6 @@ struct SinglyLinkedList {
 
   void remove(const Node* const pNode);
 
-  const Node* find(int value) const;
-
   const Node* getEnd() const;
 
   const Node* find(std::function<bool(const Node* const)> compare) const;
