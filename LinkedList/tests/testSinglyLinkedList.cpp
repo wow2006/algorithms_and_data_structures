@@ -114,3 +114,30 @@ TEST(SinglyLinkedList, getEndFromThreeItemList) {
   ASSERT_FALSE(list.getEnd() == nullptr);
   EXPECT_EQ(3, list.getEnd()->m_iValue);
 }
+
+TEST(SinglyLinkedList, removeEmpty) {
+  SinglyLinkedList list;
+
+  list.remove(nullptr);
+
+  ASSERT_TRUE(list.m_pRoot == nullptr);
+}
+
+TEST(SinglyLinkedList, removeNullptrRoot) {
+  SinglyLinkedList list{ 1 };
+
+  list.remove(nullptr);
+
+  ASSERT_FALSE(list.m_pRoot == nullptr);
+}
+
+TEST(SinglyLinkedList, removeRoot) {
+  SinglyLinkedList list{ 1, 2, 3};
+
+  auto pRoot = list.m_pRoot;
+  list.remove(pRoot);
+  delete pRoot;
+
+  ASSERT_FALSE(list.m_pRoot == nullptr);
+  EXPECT_EQ(2, list.m_pRoot->m_iValue);
+}

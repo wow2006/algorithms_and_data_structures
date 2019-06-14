@@ -48,3 +48,15 @@ const SinglyLinkedList::Node* SinglyLinkedList::getEnd() const {
   }
   return p;
 }
+
+void SinglyLinkedList::remove(const SinglyLinkedList::Node* const pNode) {
+  if(m_pRoot == nullptr) {
+    return;
+  }
+
+  if(m_pRoot == pNode) {
+    m_pRoot = pNode->m_pNext;
+  } else {
+  }
+}
+
