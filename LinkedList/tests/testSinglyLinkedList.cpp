@@ -57,12 +57,11 @@ TEST(SinglyLinkedList, addTwoValuesToEmptyList) {
 
   ASSERT_FALSE(list.m_pRoot == nullptr);
   EXPECT_EQ(1, list.m_pRoot->m_iValue);
-  
+
   ASSERT_FALSE(list.m_pRoot->m_pNext == nullptr);
   EXPECT_EQ(2, list.m_pRoot->m_pNext->m_iValue);
 }
 
-/*
 TEST(SinglyLinkedList, addThreeValuesToEmptyList) {
   SinglyLinkedList list;
 
@@ -72,11 +71,10 @@ TEST(SinglyLinkedList, addThreeValuesToEmptyList) {
 
   ASSERT_FALSE(list.m_pRoot == nullptr);
   EXPECT_EQ(1, list.m_pRoot->m_iValue);
-  
+
   ASSERT_FALSE(list.m_pRoot->m_pNext == nullptr);
   EXPECT_EQ(2, list.m_pRoot->m_pNext->m_iValue);
 }
-*/
 
 TEST(SinglyLinkedList, getEnd) {
   SinglyLinkedList list;
