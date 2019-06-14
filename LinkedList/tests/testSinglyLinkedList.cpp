@@ -140,4 +140,69 @@ TEST(SinglyLinkedList, removeRoot) {
 
   ASSERT_FALSE(list.m_pRoot == nullptr);
   EXPECT_EQ(2, list.m_pRoot->m_iValue);
+
+  ASSERT_FALSE(list.m_pRoot->m_pNext == nullptr);
+  EXPECT_EQ(3, list.m_pRoot->m_pNext->m_iValue);
+
+  ASSERT_TRUE(list.m_pRoot->m_pNext->m_pNext == nullptr);
+}
+
+/*
+TEST(SinglyLinkedList, removeEnd) {
+  SinglyLinkedList list{1, 2, 3};
+
+  auto pEnd = list.m_pRoot->m_pNext->m_pNext;
+  list.remove(pEnd);
+  delete pEnd;
+
+  ASSERT_FALSE(list.m_pRoot == nullptr);
+  EXPECT_EQ(1, list.m_pRoot->m_iValue);
+
+  ASSERT_FALSE(list.m_pRoot->m_pNext == nullptr);
+  EXPECT_EQ(2, list.m_pRoot->m_pNext->m_iValue);
+
+  ASSERT_TRUE(list.m_pRoot->m_pNext->m_pNext == nullptr);
+}
+*/
+
+TEST(SinglyLinkedList, removeRootFromEmptyList) {
+  SinglyLinkedList list;
+
+  list.remove(nullptr);
+
+  ASSERT_TRUE(list.m_pRoot == nullptr);
+}
+
+TEST(SinglyLinkedList, findNodeEmptyList) {
+  SinglyLinkedList list;
+
+  auto pNode = list.find(1);
+
+  ASSERT_TRUE(pNode == nullptr);
+}
+
+TEST(SinglyLinkedList, findNode) {
+  SinglyLinkedList list{ 1, 2, 3};
+
+  auto pNode = list.find(1);
+
+  ASSERT_FALSE(pNode == nullptr);
+}
+
+TEST(SinglyLinkedList, findNode2) {
+  SinglyLinkedList list{ 1, 2, 3};
+
+  auto pNode = list.find(2);
+
+  ASSERT_FALSE(pNode == nullptr);
+  EXPECT_EQ(2, pNode->m_iValue);
+}
+
+TEST(SinglyLinkedList, findNode3) {
+  SinglyLinkedList list{ 1, 2, 3};
+
+  auto pNode = list.find(3);
+
+  ASSERT_FALSE(pNode == nullptr);
+  EXPECT_EQ(3, pNode->m_iValue);
 }

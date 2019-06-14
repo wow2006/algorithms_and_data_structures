@@ -60,3 +60,15 @@ void SinglyLinkedList::remove(const SinglyLinkedList::Node* const pNode) {
   }
 }
 
+const SinglyLinkedList::Node* SinglyLinkedList::find(int value) const {
+  if(m_pRoot == nullptr) {
+    return nullptr;
+  }
+
+  auto p = m_pRoot;
+  while(p != nullptr && p->m_iValue != value) {
+    p = p->m_pNext;
+  }
+
+  return p;
+}
