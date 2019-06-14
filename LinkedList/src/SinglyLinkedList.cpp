@@ -72,3 +72,16 @@ const SinglyLinkedList::Node* SinglyLinkedList::find(int value) const {
 
   return p;
 }
+
+const SinglyLinkedList::Node* SinglyLinkedList::find(std::function<bool(const Node* const)> compare) const {
+  if(m_pRoot == nullptr) {
+    return nullptr;
+  }
+
+  auto p = m_pRoot;
+  while(p != nullptr && !compare(p)) {
+    p = p->m_pNext;
+  }
+
+  return p;
+}

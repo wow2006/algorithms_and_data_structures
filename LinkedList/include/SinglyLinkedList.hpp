@@ -1,5 +1,6 @@
 #pragma once
 #include <list>
+#include <functional>
 
 struct SinglyLinkedList {
   SinglyLinkedList();
@@ -22,6 +23,8 @@ struct SinglyLinkedList {
   const Node* find(int value) const;
 
   const Node* getEnd() const;
+
+  const Node* find(std::function<bool(const Node* const)> compare) const;
 
   Node *m_pRoot = nullptr;
 };

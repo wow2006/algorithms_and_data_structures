@@ -206,3 +206,14 @@ TEST(SinglyLinkedList, findNode3) {
   ASSERT_FALSE(pNode == nullptr);
   EXPECT_EQ(3, pNode->m_iValue);
 }
+
+TEST(SinglyLinkedList, findNodeCompare) {
+  SinglyLinkedList list{ 1, 2, 3};
+
+  auto pNode = list.find([&list](const SinglyLinkedList::Node* const p) {
+      return p == list.m_pRoot;
+      });
+
+  ASSERT_FALSE(pNode == nullptr);
+  EXPECT_EQ(1, pNode->m_iValue);
+}
