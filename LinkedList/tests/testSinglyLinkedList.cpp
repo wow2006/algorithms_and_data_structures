@@ -147,7 +147,6 @@ TEST(SinglyLinkedList, removeRoot) {
   ASSERT_TRUE(list.m_pRoot->m_pNext->m_pNext == nullptr);
 }
 
-/*
 TEST(SinglyLinkedList, removeEnd) {
   SinglyLinkedList list{1, 2, 3};
 
@@ -163,7 +162,22 @@ TEST(SinglyLinkedList, removeEnd) {
 
   ASSERT_TRUE(list.m_pRoot->m_pNext->m_pNext == nullptr);
 }
-*/
+
+TEST(SinglyLinkedList, removeNode) {
+  SinglyLinkedList list{1, 2, 3};
+
+  auto pNode = list.m_pRoot->m_pNext;
+  list.remove(pNode);
+  delete pNode;
+
+  ASSERT_FALSE(list.m_pRoot == nullptr);
+  EXPECT_EQ(1, list.m_pRoot->m_iValue);
+
+  ASSERT_FALSE(list.m_pRoot->m_pNext == nullptr);
+  EXPECT_EQ(3, list.m_pRoot->m_pNext->m_iValue);
+
+  ASSERT_TRUE(list.m_pRoot->m_pNext->m_pNext == nullptr);
+}
 
 TEST(SinglyLinkedList, removeRootFromEmptyList) {
   SinglyLinkedList list;

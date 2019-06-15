@@ -50,13 +50,18 @@ const SinglyLinkedList::Node* SinglyLinkedList::getEnd() const {
 }
 
 void SinglyLinkedList::remove(const SinglyLinkedList::Node* const pNode) {
-  if(m_pRoot == nullptr) {
+  if(m_pRoot == nullptr || pNode == nullptr) {
     return;
   }
 
   if(m_pRoot == pNode) {
     m_pRoot = pNode->m_pNext;
   } else {
+    auto pTemp = m_pRoot;
+    while(pTemp->m_pNext != nullptr && pTemp->m_pNext != pNode) {
+      pTemp = pTemp->m_pNext;
+    }
+    pTemp->m_pNext = pTemp->m_pNext->m_pNext;
   }
 }
 

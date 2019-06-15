@@ -19,6 +19,20 @@ macro(add_test_case test_file_name file_name)
     GTest::Main
   )
 
+  if(ENABLE_SANITIZE)
+    target_compile_options(
+      ${test_file_name}
+      PUBLIC
+      -fsanitize=address
+    )
+
+    target_link_options(
+      ${test_file_name}
+      PUBLIC
+      -fsanitize=address
+    )
+  endif()
+
   gtest_discover_tests(
     ${test_file_name}
   )
